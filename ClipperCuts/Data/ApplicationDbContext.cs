@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using ClipperCuts.Models;
 
 namespace ClipperCuts.Data
 {
@@ -9,5 +10,6 @@ namespace ClipperCuts.Data
             : base(options)
         {
         }
+        public DbSet<ClipperCuts.Models.Service>? Service { get; set; }
     }
 }
