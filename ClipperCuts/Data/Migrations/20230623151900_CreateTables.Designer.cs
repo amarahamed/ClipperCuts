@@ -4,6 +4,7 @@ using ClipperCuts.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,13 +12,14 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ClipperCuts.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230623151900_CreateTables")]
+    partial class CreateTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.18")
+                .HasAnnotation("ProductVersion", "6.0.16")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
@@ -75,7 +77,7 @@ namespace ClipperCuts.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BookingServiceId"), 1L, 1);
 
-                    b.Property<int?>("BookingID")
+                    b.Property<int>("BookingID")
                         .HasColumnType("int");
 
                     b.Property<int>("BookingServiceDuration")
@@ -139,6 +141,7 @@ namespace ClipperCuts.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("UserID")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ServiceCartID");
@@ -354,7 +357,9 @@ namespace ClipperCuts.Data.Migrations
                 {
                     b.HasOne("ClipperCuts.Models.Booking", "Booking")
                         .WithMany("BookingServices")
-                        .HasForeignKey("BookingID");
+                        .HasForeignKey("BookingID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("ClipperCuts.Models.Service", "Service")
                         .WithMany("BookingServices")

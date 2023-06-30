@@ -14,5 +14,73 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    height: 100vh;
 }
+
+a {
+    color: #000;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #fff;
+}
+
+/* Header */
+header {
+    text-transform: uppercase;
+    background-color: #333;
+}
+
+header nav > div {
+    border-top: #fff 3px solid;
+    width: 100%;
+}
+
+
+header nav div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 5px;
+    margin: 0 1rem;
+}
+header nav div a {
+    color: #FFF;
+    letter-spacing: 1.2px;
+}
+
+header nav div a.home-btn {
+    text-align: center;
+    padding-top: 10px;
+    font-weight: 600;
+}
+
+header nav div a.home-btn > p {
+    font-size: 14px;
+}
+header nav div ul {
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header nav div ul li {
+    padding: 0 12px;
+}
+
+
+
+
+
+
+
+
+
+    footer {
+        background-color: #333;
+    }
+
+

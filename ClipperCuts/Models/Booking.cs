@@ -11,6 +11,7 @@ namespace ClipperCuts.Models
 
         [Display(Name = "Total Fee")]
         [Required(AllowEmptyStrings = false)]
+        [DisplayFormat(DataFormatString = "{0:c}")]
         [Range(1, 9999999)]
         public double? TotalFee { get; set; }
 
@@ -37,7 +38,7 @@ namespace ClipperCuts.Models
         public string UserID { get; set; } 
 
         // Child Reference 
-        public List<BookingService> BookingServices { get; set; } 
+        public List<BookingService>? BookingServices { get; set; } 
 
     }
 }

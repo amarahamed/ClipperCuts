@@ -10,6 +10,7 @@ namespace ClipperCuts.Models
 
         [Display(Name = "Fee")]
         [Required(AllowEmptyStrings = false)]
+        [DisplayFormat(DataFormatString = "{0:c}")]
         public double BookingServiceFee { get; set; }
 
         [Display(Name = "Duration")]
@@ -20,10 +21,10 @@ namespace ClipperCuts.Models
         // ServiceID, BookingID
         public int ServiceID { get; set; }
 
-        public int BookingID { get; set; }
+        public int? BookingID { get; set; }
 
         public Service Service { get; set; } 
 
-        public Booking Booking { get; set; }
+        public Booking? Booking { get; set; }
     }
 }

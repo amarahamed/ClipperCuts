@@ -17,12 +17,13 @@ namespace ClipperCuts.Models
         public int ServiceDuration { get; set; }
 
         // will be selected automatically for the desired service 
+        [DisplayFormat(DataFormatString = "{0:c}")]
         public double ServiceFee { get; set; }
 
         // Child References 
         // BookingService, ServiceCart
-        public List<BookingService> BookingServices { get; set; } 
+        public List<BookingService>? BookingServices { get; set; } 
 
-        public List<ServiceCart> ServiceCarts { get; set; } 
+        public List<ServiceCart>? ServiceCarts { get; set; } 
     }
 }

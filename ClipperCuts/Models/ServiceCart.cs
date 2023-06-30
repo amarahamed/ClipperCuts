@@ -11,6 +11,7 @@ namespace ClipperCuts.Models
 
         [Required(AllowEmptyStrings = false)]
         [Display(Name= "Fee")]
+        [DisplayFormat(DataFormatString = "{0:c}")]
         [Range(1, 9999999)]
         public string ServiceFee { get; set; }
 
@@ -23,7 +24,7 @@ namespace ClipperCuts.Models
         // ServiceID, UserID 
         public int ServiceID { get; set; }
 
-        public string UserID { get; set; }
+        public string? UserID { get; set; }
 
         // represents par obj - Service 
         public Service Service { get; set; }
